@@ -3,7 +3,7 @@ class Solution {
     private void subset(int index, int a[], List<List<Integer>> ans, List<Integer> ds) {
         ans.add(new ArrayList<>(ds));
         for (int i = index; i < a.length; i++) {
-            if (i != index && a[i] == a[i - 1]) {
+            if (i > index && a[i] == a[i - 1]) {
                 continue;
             }
             ds.add(a[i]);
