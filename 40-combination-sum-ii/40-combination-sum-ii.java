@@ -6,6 +6,7 @@ class Solution {
             ans.add(new ArrayList<>(ds));
             return ;
         }
+
         for (int i = index; i < candidate.length; i++) {
             if (i > index && candidate[i] == candidate[i - 1]) {
                 continue;
@@ -14,10 +15,9 @@ class Solution {
                 break;
             }
             ds.add(candidate[i]);
-            sum(i+ 1, candidate, target - candidate[i], ans, ds);
+            sum(i + 1, candidate, target - candidate[i], ans, ds);
             ds.remove(ds.size() - 1);
         }
-        // return ans;
     }
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
         List<List<Integer>> ans = new ArrayList<>();
