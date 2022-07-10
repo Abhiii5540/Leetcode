@@ -14,16 +14,13 @@ class Solution {
         // if it is empty or not
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') { // if the col of that particular row is empty , we need to fill that cell with
-                                          // checking the conditions
+                if (board[i][j] == '.') { // if the col of that particular row is empty , we need to fill that cell with checking the conditions
 
                     for (char c = '1'; c <= '9'; c++) {
-                        if (isValid(board, i, j, c)) { // if it is valid to fill the cell , put cth value in that
-                                                       // particual cell
+                        if (isValid(board, i, j, c)) { // if it is valid to fill the cell , put cth value in that particual cell
                             board[i][j] = c;
 
-                            if (solve(board)) // calls up for board cell which is empty and return true if all the
-                                                    // placed is filled correctly
+                            if (solve(board)) // calls up for board cell which is empty and return true if all the placed is filled correctly
                                 return true;
                             else
                                 board[i][j] = '.'; // if not we backtrack and empty that cell
