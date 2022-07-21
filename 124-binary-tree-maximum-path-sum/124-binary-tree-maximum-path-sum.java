@@ -19,11 +19,11 @@ class Solution {
         if(root==null){
             return 0;
         }
-        int lh=helperForMaxSumPath(root.left);
-        int rh=helperForMaxSumPath(root.right);
+        int lh=Math.max(0,helperForMaxSumPath(root.left));
+        int rh=Math.max(0,helperForMaxSumPath(root.right));
         
-        lh=lh>0?lh:0;
-        rh=rh>0?rh:0;
+        // lh=lh>0?lh:0;
+        // rh=rh>0?rh:0;
         
         maxi=Math.max(maxi,root.val+lh+rh);
         
