@@ -1,3 +1,16 @@
+Given a binary tree, print the bottom view from left to right.
+A node is included in bottom view if it can be seen when we look at the tree from bottom.
+  20
+                    /    \
+                  8       22
+                /   \        \
+              5      3       25
+                    /   \      
+                  10    14
+
+For the above tree, the bottom view is 5 10 3 14 25.
+
+GFG link :- https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
 
 import java.util.*;
 
@@ -41,9 +54,7 @@ public class bottomView {
         q.add(new Pair(0, root));
         while (!q.isEmpty()) {
             Pair curr = q.poll();
-            if (m.get(curr.num) == null) {
                 m.put(curr.num, curr.root.data);
-            }
             if (curr.root.left != null) {
                 q.add(new Pair(curr.num - 1, curr.root.left));
             }
