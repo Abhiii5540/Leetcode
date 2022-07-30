@@ -24,8 +24,8 @@ class Solution {
             map.put(inorder[i],i);
         }
         
-        return buildTreeHelper(inorder,0,inorder.length-1,postorder,0,postorder.length-1,map);
-        // return root;
+        TreeNode root= buildTreeHelper(inorder,0,inorder.length-1,postorder,0,postorder.length-1,map);
+        return root;
     }
     
     public TreeNode buildTreeHelper(int[] inorder,int iStart, int iEnd, int[] postorder, int pStart, int pEnd , Map<Integer,Integer> map) {
