@@ -1,0 +1,82 @@
+GFG Link practice :- https://practice.geeksforgeeks.org/problems/implementing-ceil-in-bst/1
+
+/*
+Given a BST and a number X, find Ceil of X.
+Note: Ceil(X) is a number that is either equal to X or is immediately greater than X.
+
+Example 1:
+
+Input:
+      5
+    /   \
+   1     7
+    \
+     2 
+      \
+       3
+X = 3
+Output: 3
+Explanation: We find 3 in BST, so ceil
+of 3 is 3.
+*/
+
+
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Scanner;
+import java.util.Stack;
+import java.util.TreeMap;
+import java.util.*;
+
+class TreeNode {
+    int val;
+    TreeNode left;
+    TreeNode right;
+
+    TreeNode() {
+    }
+
+    TreeNode(int val) {
+        this.val = val;
+    }
+
+    TreeNode(int val, TreeNode left, TreeNode right) {
+        this.val = val;
+        this.left = left;
+        this.right = right;
+    }
+}
+
+public class ceilInBST {
+
+    public static int findCeil(TreeNode root, int x) {
+        int ceil = -1;
+        while (root != null) {
+            if (root.val == x) {
+                ceil = root.val;
+                return ceil;
+            }
+            if (x > root.val) {
+                root = root.right;
+            } else {
+                ceil = root.val;
+                root = root.left;
+            }
+        }
+        return ceil;
+    }
+
+    public static void main(String[] args) {
+        TreeNode root = new TreeNode(1);
+        root.left = new TreeNode(2);
+        root.left.left = new TreeNode(4);
+        root.left.right = new TreeNode(5);
+        root.right = new TreeNode(3);
+        root.right.left = new TreeNode(6);
+        root.right.right = new TreeNode(7);
+        System.out.println(findCeil(root, 3));
+    }
+
+}
