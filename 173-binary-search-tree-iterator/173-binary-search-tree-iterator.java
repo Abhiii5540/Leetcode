@@ -19,13 +19,13 @@ class BSTIterator {
     public BSTIterator(TreeNode root) {
         pushAll(root);
     }
-    
+     /** @return the next smallest number */
     public int next() {
         TreeNode temp = s.pop();
         pushAll(temp.right);
         return temp.val;
     }
-    
+      /** @return whether we have a next smallest number */
     public boolean hasNext() {
         return !s.isEmpty();
     }
