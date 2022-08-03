@@ -25,6 +25,7 @@ class BSTIterator {
         pushAll(root);
     }
     
+     /** @return the next smallest number */
     public int next() {
         TreeNode temp = s.pop();
         if(reverse==false){
@@ -35,6 +36,7 @@ class BSTIterator {
         return temp.val;
     }
     
+     /** @return whether we have a next smallest number */
     public boolean hasNext() {
         return !s.isEmpty();
     }
@@ -55,8 +57,8 @@ class Solution {
         if(root==null){
             return false;
         }
-        BSTIterator obj=new BSTIterator(root,false);
-        BSTIterator obj2=new BSTIterator(root,true);
+        BSTIterator obj=new BSTIterator(root,false);//next()
+        BSTIterator obj2=new BSTIterator(root,true);//before()
         
         int i=obj.next();
         int j=obj2.next();
@@ -67,10 +69,10 @@ class Solution {
                 return true;
             }
             else if(sum<k){
-                i=obj.next();
+                i=obj.next();//calling for next element from the next function for true , i.e. moving the i pointer to i+1;
             }
             else{
-                j=obj2.next();
+                j=obj2.next();//calling for next element from the next function but for false this time , i.e. moving the j pointer to j+1;
             }
         }
         return false;
