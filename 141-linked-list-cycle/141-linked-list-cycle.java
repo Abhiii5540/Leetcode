@@ -15,7 +15,7 @@ public class Solution {
             return false;
         }
         ListNode slow=head,fast=head;
-        while(fast.next!=null && fast.next.next!=null){
+        while(fast.next!=null && fast.next.next!=null){//either last element or second last element ka next null ho
             fast=fast.next.next;
             slow=slow.next;
             if(fast==slow){
