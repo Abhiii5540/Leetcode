@@ -31,7 +31,7 @@ class Solution {
         for(int i=0;i<k;i++){
             cur=cur.next;
         }
-        head=cur.next;
+        head=cur.next;//now point head to that current's next and currents.next to null to break the links
         cur.next=null;
         
         return head;
