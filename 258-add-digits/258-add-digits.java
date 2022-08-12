@@ -1,7 +1,23 @@
 class Solution {
-    public int addDigits(int num) {
-       if(num<10)
-    	return num;
-	return addDigits((num%10)+(num/10));
+     public boolean isHappy(int n) {
+        int slow = n;
+        int fast = n;
+do {
+            slow = findSquare(slow);
+            fast = findSquare(findSquare(fast));
+        } while (slow != fast);
+if (slow == 1) {
+            return true;
+        }
+        return false;
+    }
+    private int findSquare(int number) {
+        int ans = 0;
+        while (number > 0) {
+            int rem = number % 10 ;
+            ans += rem * rem;
+            number /= 10;
+        }
+        return ans;
     }
 }
