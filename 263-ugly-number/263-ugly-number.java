@@ -1,7 +1,11 @@
 class Solution {
     public boolean isUgly(int num) {
-         if (num <= 0) {return false;}
-    if (num == 1) {return true;}
+         if (num <= 0) {
+             return false;
+         }
+    if (num == 1) {
+        return true;
+    }
     if (num % 2 == 0) {
         return isUgly(num/2);
     }
