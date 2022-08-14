@@ -1,0 +1,55 @@
+Question link:-https://practice.geeksforgeeks.org/problems/fab3dbbdce746976ba35c7b9b24afde40eae5a04/1
+
+Professor X wants his students to help each other in the chemistry lab. He suggests that every student should help out a classmate who scored less marks 
+than him in chemistry and whose roll number appears after him. But the students are lazy and they don't want to search too far. 
+They each pick the first roll number after them that fits the criteria. Find the marks of the classmate that each student picks.
+Note: one student may be selected by multiple classmates.
+
+Example 1:
+
+Input: N = 5, arr[] = {3, 8, 5, 2, 25}
+Output: 2 5 2 -1 -1
+
+import java.util.ArrayList;
+import java.util.*;
+
+public class nextSmallerElement {
+    public static ArrayList<Integer> nextSmaller(ArrayList<Integer> A) {
+        ArrayList<Integer> ans = new ArrayList<>();
+        Stack<Integer> s = new Stack<>();
+        for (int i = A.size()-1; i >= 0; i--) {
+            while (!s.isEmpty() && s.peek() >= A.get(i)) {
+                s.pop();
+            }
+            if (s.isEmpty()) {
+                ans.add(-1);
+            } else {
+                ans.add(s.peek());
+            }
+            s.push(A.get(i));
+        }
+        // ArrayList<Integer> res = new ArrayList<>();
+        // for (int i = ans.size()-1; i>=0; i--) {
+        //     int x=ans.get(i);
+        //     res.add(x);
+        // }
+        // return res;
+        Collections.reverse(ans);
+        ArrayList<Integer> res = new ArrayList<>();
+        res.addAll(ans);
+        return res;
+    }
+
+    public static void main(String[] args) {
+        ArrayList<Integer> A = new ArrayList<>();
+        A.add(2);
+        A.add(1);
+        A.add(4);
+        A.add(3);
+        // A.add(8);
+
+       ArrayList<Integer> ans= nextSmaller(A);
+       System.out.println(ans);
+    }
+
+}
